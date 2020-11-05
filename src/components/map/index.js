@@ -16,6 +16,7 @@ const Map = (props) => {
     map.geodata = am4geodata_worldLow;
     map.projection = new am4maps.projections.Miller();
 
+    //Alex: use let instead of var
     // Create map polygon series
     var polygonSeries = map.series.push(new am4maps.MapPolygonSeries());
     polygonSeries.useGeodata = true;
@@ -46,6 +47,9 @@ const Map = (props) => {
     };
   }, []);
 
+  // Alex: I use useEffect in my project and sometimes the image or text flicks.
+  // After learning useLayoutEffect from your code, I think it is the hook I needed to use in my project,
+  // as it executes the codes inside useLayoutEffect before react renders.   
   useLayoutEffect(() => {
     if (series && series.current) {
       series.current.data = props.locations;
