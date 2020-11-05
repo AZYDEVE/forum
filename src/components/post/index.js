@@ -10,7 +10,12 @@ const Post = (props) => {
   const [date, setDate] = useState("");
   const [dateUser, setDateUser] = useState("");
   const [color, setColor] = useState({});
-
+  
+  
+  //Alex: I like the way how you put everything you need for initial Loading in a function.
+  // and use UseEffect to excute the function everytime the browser refreshes. You implementation is
+  //very clean and easy to read.
+  
   const initialSetup = () => {
     setDate(convertDate(props.post.created));
     setColor(
